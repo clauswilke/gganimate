@@ -106,6 +106,9 @@ ggplot_build.gganim <- function(plot) {
 
   data <- scene$finish_data(data)
 
+  # Pre-calculate and cache plot theme
+  plot$theme_cached <- finalize_plot_theme (plot, cache = TRUE)
+
   structure(
     list(data = data, layout = layout, plot = plot, scene = scene),
     class = "gganim_built"
